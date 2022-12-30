@@ -67,3 +67,5 @@ _The order of the functions in the program:_
 5. Iteration - console.log('baz')
 6. Iteration - bar();
 7. Iteration - console.log('bar');
+
+Other example you can check in file eventloop.js https://github.com/ArsenyOK/event-loop/blob/master/eventloop.js
