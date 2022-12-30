@@ -1,5 +1,9 @@
 # Event Loop in Javascript
 
+So in this article I wanna talk about Event Loop. For my opinion it's difficult topic of Javascript and not everybody gets it. I'll try
+to describe in more details about Event Loop. For every Javascript developer should know about this like for junior or middle.
+The Event Loop gives you a deeper understanding of how Javascript works.
+
 _JavaScript_ code only works in **single-threaded mode**. This means that only one event can occur at the same time. On the one hand, this is good, since such a restriction greatly simplifies the programming process, there are no parallelism problems here. But, as a rule, in most browsers, each of the tabs has its own event loop. The environment manages multiple parallel loops.
 
 ## How works Event loop?
@@ -25,3 +29,31 @@ For example:
 2. **Micro**: Promise, process.nextTick, queueMicrotask
 
 They are executed only after all microtasks have been completed. The _Event Loop_ goes to the macro task queue - and then again, after the macro task, all micro tasks are executed. And so on in a circle until the _Event queue_ is empty.
+
+## How event adds to the queue
+
+**_The operation is posted to the event queue. Hence, we have a looping scheme for performing asynchronous operations in JavaScript. The language itself is single-threaded, but the browser APIs act as separate threads._**
+
+_Simple example_:
+
+```high-light
+const bar = () => {
+  console.log("bar");
+};
+
+const baz = () => {
+  console.log("baz");
+};
+
+const foo = () => {
+  console.log("foo");
+  setTimeout(bar, 0);
+  baz();
+};
+
+foo();
+```
+
+_View_:
+
+eventLoop1.PNG
