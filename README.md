@@ -58,3 +58,12 @@ _View_:
 
 ![eventLoop1](https://user-images.githubusercontent.com/43606985/210100044-9ea253ec-8ad2-46fe-ab0f-173793d41ade.PNG)
 
+_The order of the functions in the program:_
+
+1. Iteration - foo();
+2. Iteration - console.log('foo');
+3. Iteration - setTimeout();
+4. Iteration - baz();
+5. Iteration - console.log('baz')
+6. Iteration - bar();
+7. Iteration - console.log('bar');
